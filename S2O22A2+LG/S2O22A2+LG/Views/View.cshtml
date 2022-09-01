@@ -1,0 +1,18 @@
+﻿
+@{
+
+    String actionName = ViewContext.RouteData.GetRequiredString("action");
+    String title = null;
+
+    switch (actionName)
+    {
+        case "Index":
+            title = "All Tracks";
+            break;
+
+    }
+
+    }
+
+<h2>@title</h2>
+

@@ -1,0 +1,102 @@
+﻿@model IEnumerable<S2O22A2_LG.Models.TrackBaseViewModel>
+
+
+
+@{
+    string actionName = ViewContext.RouteData.GetRequiredString("action");
+
+    ViewBag.Title = "Index";
+
+    switch (actionName)
+    {
+        case "Index":
+            ViewBag.Title = "All Tracks";
+            break;
+        case "TrackAllRockMetal":
+            ViewBag.Title = "Rocks & Metal Tracks";
+            break;
+        case "TrackAllTylerVallance":
+            ViewBag.Title = "Tyler & Vallance Tracks";
+            break;
+        case "TrackAllTop50Longest":
+            ViewBag.Title = "Longest Tracks";
+            break;
+        case "TrackAllTop50Smallest":
+            ViewBag.Title = "Smallest Tracks";
+            break;
+        
+    }
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("All Tracks", "Index") | @Html.ActionLink("Rocks & Metal Tracks", "TrackAllRockMetal") |  @Html.ActionLink("Tyler & Vallance Tracks", "TrackAllTylerVallance") |  @Html.ActionLink("Longest Tracks", "TrackAllTop50Longest") |  @Html.ActionLink("Smallest Tracks", "TrackAllTop50Smallest")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TrackId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlbumId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MediaTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GenreId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Composer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Milliseconds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bytes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrackId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlbumId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MediaTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Composer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Milliseconds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bytes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+          
+        </tr>
+    }
+
+</table>
